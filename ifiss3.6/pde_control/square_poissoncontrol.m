@@ -118,7 +118,7 @@ end
 
 Kinv=K\eye(size(K));
 
-save("QUBO", "Phi", "M", "Kinv","yhat_vec")
+save(sprintf("QUBO_%d.mat", problem), "Phi", "M", "Kinv", "yhat_vec");
 
 % Make contour and surface plots of solutions for state y and control u
 solplot_poissoncontrol(sol_y,sol_u,xy,x,y,77)

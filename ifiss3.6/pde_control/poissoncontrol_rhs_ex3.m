@@ -12,7 +12,15 @@ function [yhat_vec,bc_nodes] = poissoncontrol_rhs_ex3(xy,bound)
 %   IFISS function: JWP; 27 June 2012.
 % Copyright (c) 2012 J.W. Pearson
 
+% Specify coordinates of centre of Gaussian
+gauss_ctr = [0 0];
+
+% Specify Gaussian parameter
+gauss_param = 1;
+
 % Specify desired state
 yhat_vec = sin(pi*xy(:,1)).*sin(pi*xy(:,2));
 % Specify Dirichlet BC
 bc_nodes = zeros(length(bound),1);
+
+

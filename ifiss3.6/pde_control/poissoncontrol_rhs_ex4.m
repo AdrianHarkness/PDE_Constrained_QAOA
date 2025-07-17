@@ -50,7 +50,7 @@ bc_nodes = exp(-gauss_param*((xy(bound,1)-gauss_ctr(1)).^2+ ...
 % Compute the Phi matrix
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %nphi = [16 20 24];
-n= 16;  % change the number of binary variables
+n = 12;  % change the number of binary variables
 a=0.1; b = 0.9;
 cent =a + (b-a)*rand(n,2);
 N=length(yhat_vec);
@@ -58,7 +58,7 @@ N=length(yhat_vec);
 Phi = zeros(N,n);
 
 for j=1:n
-gauss_ctr =cent(j,:);   
+%gauss_ctr =cent(j,:);   
 Phi(:,j) = exp(-gauss_param*((xy(:,1)-gauss_ctr(1)).^2+ ...
     (xy(:,2)-gauss_ctr(2)).^2));
 % Specify Dirichlet BC
