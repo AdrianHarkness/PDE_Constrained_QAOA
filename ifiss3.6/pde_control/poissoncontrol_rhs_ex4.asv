@@ -1,4 +1,4 @@
-function [yhat_vec,bc_nodes] = poissoncontrol_rhs_ex4(xy,bound,ell_type)
+function [Phi,yhat_vec,bc_nodes] = poissoncontrol_rhs_ex4(xy,bound,ell_type)
 %POISSONCONTROL_RHS_EX4 inputs desired state and BCs for Problem 4
 %Dirichlet boundary condition for Problem 4 
 %   [yhat_vec,bc_nodes] = poissoncontrol_rhs_ex4(xy,bound,square_type)
@@ -50,7 +50,7 @@ bc_nodes = exp(-gauss_param*((xy(bound,1)-gauss_ctr(1)).^2+ ...
 % Compute the Phi matrix
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %nphi = [16 20 24];
-n= 16;  % change the number of binary variables
+n = 12;  % change the number of binary variables
 a=0.1; b = 0.9;
 cent =a + (b-a)*rand(n,2);
 N=length(yhat_vec);
@@ -59,11 +59,11 @@ Phi = zeros(N,n);
 
 for j=1:n
 gauss_ctr =cent(j,:);   
-Phi(:,j) = exp(-gauss_param*((xy(:,1)-gauss_ctr(1)).^2+ ...
+Phi(:,j) = exp(-gauss_param*((xy(:,1)-gauss_ctr).^2+ ...
     (xy(:,2)-gauss_ctr(2)).^2));
 % Specify Dirichlet BC
 bc_nodes = exp(-gauss_param*((xy(bound,1)-gauss_ctr(1)).^2+ ...
     (xy(bound,2)-gauss_ctr(2)).^2));
 
 end
-Phi
+%Phi
